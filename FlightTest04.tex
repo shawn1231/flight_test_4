@@ -1,0 +1,196 @@
+\documentclass[conf]{new-aiaa}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\usepackage[per-mode=symbol,separate-uncertainty = true,multi-part-units=single]{siunitx}
+\usepackage{longtable,tabularx}
+\setlength\LTleft{0pt} 
+\usepackage{color}
+\usepackage{epstopdf}
+\usepackage{makecell}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+
+\usepackage{hyperref}
+
+\sisetup{group-separator = {,}}
+
+\graphicspath{{Figures/}}
+
+\Crefname{equation}{Eq.}{Eqs.}
+\Crefname{figure}{Fig.}{Figs.}
+
+\DeclareSIUnit\inch{in}
+\DeclareSIUnit\foot{ft}
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\knot{kts}
+\DeclareSIUnit\poundforce{lbf}
+\DeclareSIUnit\pixel{px}
+
+\begin{document}
+
+\begin{titlepage}
+
+	\centering
+	\vspace*{\fill}
+	\rule{\textwidth}{0.4pt}
+	\textsc{\huge Flight Test Report \\}
+	\textsc{\huge Flight Test 04 (Aircraft Performance) \\}
+	\bigskip
+	\textsc{\large Date Submitted: May 11, 2020\\}
+	\bigskip
+	{\large Prepared by: \textsc{\huge Team Ramrod}\\}
+	{(Shawn M. Herrington, Paul Klappa and Cody Smith)}	
+	\rule{\textwidth}{0.4pt}
+	
+	\vspace*{\fill}	
+	
+	\begin{figure}[hbt!]
+		\centering
+		\includegraphics[height=1.75in]{PAVSLogo_BlackOutline.png}
+		\label{PAVSLOGO}
+	\end{figure}	
+		
+\end{titlepage}
+
+\section{Introduction}
+
+\begin{itemize}
+	\item Explain test objectives
+	\begin{itemize}
+		\item Level power required vs. airspeed
+		\item Climb rate vs. airspeed
+		\item Descent rate vs. airspeed
+		\item Takeoff distance
+		\item Landing distance
+	\end{itemize}
+	\item Introduce group members
+\end{itemize}
+
+\subsection{Team Ramrod}
+
+Team Ramrod was established in 2019 with the goal of dethroning Tech N9ne as the most famous hip-hop act from Kansas City. Originally conceived as a foursome, the group was reduced to their current lineup after MC Tim Layman left the group due to creative differences. Following the success of their double platinum eponymous debut album, Team Ramrod shocked the world by walking away from their lucrative careers in the music industry in order to pursue advanced degrees in Mechanical Engineering.
+
+\subsubsection{Shawn Herrington}
+
+Shawn Herrington was born in Kansas City but he's a Florida man at heart. Shawn has rarely met a swear word he didn't immediately take a liking to. Shawn's number one skill is knowing the exact moment when someone has left the room so he can start talking about them behind their back. Often stirred into a furious rage over the most mundane things, Shawn can be made to put on an entertaining demonstration of overreaction just by asking him simple questions such as ``How are you doing today?'' or ``Did you get that email about the assignment?''.
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[height=1.5in]{ShawnExotic2.jpg}
+	\label{PAVSLOGO}
+	\caption{Discount Hulk Hogan}
+\end{figure}
+
+During flight tests, Shawn contributes as little as possible.  He earned the dubious distinction of being the only ``pilot'' (used loosely here) to successfully crash the notoriously milquetoast Cessna 172 in two out of three CG configurations. Shawn's hobbies include eating Cheetos Puffs\textsuperscript{\textregistered} with a fork (to avoid getting dusty orange fingers) and telling boring stories about his dog.  Annoyingly, Shawn has been known to refer to people, even people he's not related to as ``brother''.
+
+\subsubsection{Paul Klappa}
+
+Paul ``The Klapp'' Klappa is originally from great frozen tundra of the remote northern state of Minnesota. In addition to understanding the sport of hockey, Paul is distinguished by the way he pronounces ``bag'', ``rag'', etc. Despite his prolific professional wrestling career, Paul never let fame go to his head and even returns to Minnesota from time to time to participate in the regular ice fishing competitions held at any of of the states' famous \num{10000} lakes.
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[height=1.5in]{KlappIsCookin2.jpg}
+	\label{PAVSLOGO}
+	\caption{Can you smell what the Klapp is cookin'?!}
+\end{figure}	
+
+As the youngest and most charismatic member of \emph{Team Ramrod} Paul plays public relations manager for the team. Paul's main contributions to the team are making sure he is holding the correct brand of energy drink during press conferences to keep up that sweet sponsorship money. When he is not serving as test engineer, or repeatedly saying ``proceed'' awkwardly into the headset microphone Paul enjoys pumping some iron, hitting up the vending machine, and wearing sweatpants.
+
+\subsubsection{Cody Smith}
+
+Cody Smith hails from the greater metropolitan Kansas City area. Born and bred in the~\num{816} Cody represented his hood all over the world as crew chief for the world famous United States Air Force (USAF) B52 aerobatic demonstration team. Now living the calm civilian life, Cody scratches the thrill-seeker itch by hand-launching foam airplanes at great risk to life and limb. Ever courageous in the face of unspeakable danger, Cody answers questions like ''Dude, did you see how close that propeller was to your arm?'' with a simple shrug; just another routine day for this former USAF Airman.
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[height=1.5in]{CodyCena.jpg}
+	\label{PAVSLOGO}
+	\caption{Your time is up, my time is now!}
+\end{figure}
+
+Cody's role on \emph{Team Ramrod} is fashion consultant. Always dressed for the occasion, Cody is an expert on flight test engineering attire including cargo shorts and baseball caps. Due to his extensive experience working on real airplanes, Cody is always designated as the crew chief even when no crew chief is needed. When he's not pleading the case against Billy Joel to  his younger brother Simeon, Cody spends his free time watching his wife do squats and searching for that missing bag of trail-mix.
+
+
+\section{Background}
+
+\begin{itemize}
+	\item Level flight performance vs. power required
+	\item Excess power and climbing flight
+	\item Gliding flight
+	\item Takeoff and landing performance
+\end{itemize}
+
+\section{Test Procedure}
+
+\begin{itemize}
+	\item Overview of processes and equipment
+	\item Narrative of the test procedure and equipment
+	\item Anomalies or issues encountered
+	\item Flight card
+	\begin{itemize}
+		\item Narrative in the text
+		\item Scan in the appendix
+	\end{itemize}
+\end{itemize}
+
+\section{Test Results}
+
+\begin{itemize}
+	\item Show plots of takeoff performance
+	\item Show plots of level flight acceleration
+	\item Show plots of climbs and descents
+	\item Show plots of landing performance
+\end{itemize}
+
+\section{Discussion}
+
+\begin{itemize}
+	\item Takeoff and landing performance
+	\begin{itemize}
+		\item Ground roll
+		\item Over \SI{50}{\foot} obstacle
+		\item Compare distances with published data
+	\end{itemize}
+	\item Power required for level flight
+	\begin{itemize}
+		\item Show power required vs. airspeed plot (individual points and regression, if appropriate)
+		\item Identify minimum power required and corresponding airspeed
+		\item Identify maximum range and corresponding airspeed
+		\item Compare airspeed with published data
+	\end{itemize}
+	\item Climb performance
+	\begin{itemize}
+		\item Show climb rate vs. airspeed climb polar (individual points and regression, if appropriate)
+		\item Identify maximum climb rate and corresponding airspeed
+		\item Identify maximum climb angle and corresponding airspeed
+		\item Compare airspeeds with published data
+	\end{itemize}
+	\item Gliding performance
+	\begin{itemize}
+		\item Show descent rate vs. airspeed glide polar (individual points and regression, if appropriate)
+		\item Identify maximum sink rate and corresponding airspeed
+		\item Identify best glide speed and corresponding airspeed
+		\item Compare airspeeds with published data
+	\end{itemize}
+\end{itemize}
+
+\section{Conclusions}
+
+\begin{itemize}
+	\item Summary of test objectives
+	\item Summary of process
+	\item Summary of findings
+	\item Recommendations
+\end{itemize}
+
+\section{Appendix}
+
+\end{document}
