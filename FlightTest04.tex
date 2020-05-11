@@ -185,20 +185,234 @@ There is a power required curve for flight at specific velocities and a power av
 
 \subsection{Gliding Flight}
 
+Gliding refers to the steady-state flight condition in which an aircraft is maneuvering unpowered through the air without thrust. In the case of an airplane, gliding performance is measured when the aircraft's engine is completely unpowered. In previous sections, the aircraft was assumed to be at level flight. In the case of a glide, the aircraft is incapable of maintaining level flight and must descend at a particular angle. As airspeed increases, the aircraft must pitch down in order to allow a larger component of weight to counteract the drag.
+
+An analysis can be peformed on an aircraft's glide performance through the use of a glide polar plot. A glide polar uses an inverted axes system with \(\dot{h}\), the sink rate, on the y-axis and the airspeed \(V\) on the x-axis. The glide polar plot is essentially a plot of how fast the aircraft descends as a function of different airspeeds. The glide polar can be used to determine glide characteristics like minimum descent speed which is the speed at which an aircraft should fly in order to stay airborne as long as possible. A tangent angle can be applied to the curve to determine the best angle of glide. The best angle of glide refers to the angle at which the aircraft must fly in order to fly the farthest distance possible. A glide polar provides insight into both aircraft performance and proper emergency procedures. The glide polar provides a pilot with useful information to extract the maximum performance from the aircraft in emergency conditions. 
+
 \subsection{Takeoff and Landing Performance}
+
+
+The forces required during takeoff can be described in \Cref{TO}. This equation is simply a Newton's 2nd Law representation of the sum of forces during takeoff equal to the mass times acceleration. The sum of forces can be broken down into thrust minus the aircraft's total resistance to liftoff. The total resistance during takeoff is displayed in \Cref{resistance} which is just the same of the aircraft's drag with it's rolling resistance while on the ground.
+
+\begin{equation} \label{TO}
+\ T - [D + \mu (W-L)] = \dfrac{w}{g}a
+\end{equation}
+
+where: 
+\begin{tabbing}
+\phantom{$D_{n50}\ $}\= \kill
+\indent $T$\> \indent = Thrust\\
+\indent $D$\> \indent = Aerodynamic Drag\\
+\indent $\mu$\> \indent = Rolling Friction Coefficient\\
+\indent $W$\> \indent = Weight on Wheels\\
+\indent $L$\> \indent = Lift\\
+\indent $g$\> \indent = Gravitational Constant\\
+\end{tabbing}\
+
+\begin{equation} \label{resistance}
+\ R = [D + \mu(W-L)]
+\end{equation}
+
+Eventually, once the aircraft has left the ground, the weight on the aircraft's wheels goes to zero and the total resistance on the aircraft is only equal to the drag. The total resistance on the aircraft can be expanded further in equation \Cref{expandresistance} which is a complex breakdown of the drag force.
+
+\begin{equation} \label{expandresistance}
+\ R = (C_{D_P} + \dfrac{C_{L}^2}{\pi ARe})qS + \mu(W-C_LqS)
+\end{equation}
+
+where: 
+\begin{tabbing}
+\phantom{$D_{n50}\ $}\= \kill
+\indent $C_{D_P}$\> \indent = Parasitic Drag\\
+\indent $C_L$\> \indent = Coefficient of Lift\\
+\indent $A$\> \indent = Aspect Ratio \\
+\indent $e$\> \indent = Efficiency Factor\\
+
+\end{tabbing}\
+
+The aspect ratio is the square of the aircraft's wingspan divided by the wing area. The efficiency factor e is equal to 1.0 for an elliptical distribution and is generally some value less than 1.0 for any other lift distribution \cite{NASA}. 
+
+During a takeoff maneuver, \Cref{thrustexcess} can be viewed from a work perspective which is the work that is performed during a takeoff roll. This perspective is shown in \Cref{workperspective}. Here \(S_{gTO}\) refers to the distance the aircraft needs to roll on the ground before takeoff. Further rearranging \Cref{workperspective} leads to \Cref{groundrolldistance} which is used to solve for the ground roll distance.
+
+\begin{equation} \label{thrustexcess}
+T_{excess} = T_{net} - R
+\end{equation}
+
+\begin{equation} \label{workperspective}
+(T_{net} - R)S_{gTO} = (\dfrac{W}{2g})V_{TO}^2
+\end{equation}
+
+\Cref{groundrolldistance} shows that ground roll distance changes as a function of net thrust and weight. If the aircraft is given more thrust the ground roll distance is decreased. Likewise, the ground roll takeoff distance has a 1:1 change when affecting weight. That is, if you double weight you double the distance required for the aircraft to takeoff. \(V_{TO}\), the takeoff velocity, can also be changed in order to compensate for increased weights or increased resistances. That is, the heavier an aircraft is or the more resistance during takeoff, the faster the aircraft must go to takeoff in the same rolling distance. 
+
+\begin{equation} \label{groundrolldistance}
+S_{gTO} = \dfrac{W}{g(T_{net}-R_{nom})}(\dfrac{V_{TO}^2}{2})
+\end{equation}
 
 \section{Test Procedure}
 
+\subsection{Overview of Processes and Equipment}
+
+\subsubsection{Process}
+
+For each flight card there was a clearly defined checklist / procedure as well as one checklist for the pre-flight of the aircraft. The pre-flight checklist included standard airworthiness checks of the aircraft, instrumentation checks, passenger readiness checks, Go/No-Go Poll, etc. Each maneuver had specific checklist items relative to that maneuver. 
+
+\subsubsection{Equipment}
+
+For the first day of flight testing on April 23, the provided aircraft was a rental Piper P28-A Warrior II - N6394C. The Piper was piloted by Dr. Abdulrahim for all three flights of the day. On April 28, for the second day of flight testing, both the Piper P28-A and a Dr. Field's Thorpe T-18-N2494 were flown. The third test flight day  Additional instrumentation added to each aircraft for flight testing was the Pixhawk 2.1, Here2 GPS, and a telemetry radio inside the cabin. Mounted on the outside of the wing was a PixRacer, mRo Gps, pitot tube, and pressure sensor. 
+
+\subsection{Narrative of the test process and sequence}
+
+Following the order of the flight cards, the flight tests were conducted in a logical sequential order. The purpose of this test was to identify the aircraft performance characteristics in level flight, climb, descent, takeoff, and landing as well as identify characteristics including:
+
 \begin{itemize}
-	\item Overview of processes and equipment
-	\item Narrative of the test procedure and equipment
-	\item Anomalies or issues encountered
-	\item Flight card
-	\begin{itemize}
-		\item Narrative in the text
-		\item Scan in the appendix
-	\end{itemize}
+\item Best endurance
+\item Best range
+\item Best climb rate
+\item Best climb angle
+\item Minimum sink rate
+\item Best glide angle
 \end{itemize}
+
+\medskip
+Other Maximum performance measurements include:
+
+\begin{itemize}
+\item Takeoff distance
+\item 50 ft obstacle clearance
+\item Landing Distance
+\item Landing a 50 ft obstacle
+\end{itemize}
+
+\medskip 
+
+Once the aircraft was in the air, and all personnel were ready to to begin the flight test, a generalized procedure for each flight card was followed. 
+
+\medskip
+
+\begin{enumerate}
+
+	\item Test Director announces the start of the the test card  and conducts Go/No-Go Poll
+	\item Test Director announces the specific test conditions
+	\item Pilot maneuvers the aircraft into specific test condition
+	\item Flight Test Engineer makes measurement call outs and records data
+	\item Test Director reports maneuver or test card complete and proceeds to next flight card or end of test
+\end{enumerate}
+
+\medskip Once all flight cards were complete, after the conclusion of the short-field landing, the the test was concluded and the aircraft was brought back to the hangar to prepare for the next test.
+
+\subsection{Flight Card}
+\subsubsection{Maneuvers}
+Based on the flight cards, there were several in-flight maneuvers planned for the experiment. Those maneuvers included:
+\medskip
+\begin{itemize}
+\item \textbf{Short-Field Takeoff} for maximum performance takeoff and obstacle clearnace performance
+\item \textbf{Level Acceleration} for level flight power required assessment
+\item \textbf{Steady Climbs} for climb performance assessment
+\item \textbf{Steady Descents} for descent assessment
+\item \textbf{Short-Field Landing} for maximum performance obstacle clearance and landing performance
+\end{itemize}
+
+\medskip
+
+
+The short-field takeoff is a maneuver that is performed when an aircraft is required to takeoff where runway length is limited. According to the flight cards, a short field takeoff is performed by lining up the aircraft with a known point on the runway, extending the flaps to 25 degrees, applying maximum brake pressure and increasing the throttle to full. The brakes are then released allowing the aircraft to accelerate to 52 KIAS until the aircraft was 50 AGL. The aircraft is then accelerated to 79 KIAS at which point then flaps are to be slowly retracted allowing the aircraft to climb until 1000 AGL. Assesment criteria includes:
+
+\medskip
+
+\begin{itemize}
+\item Throttle reaches maximum before brakes released
+\item Airspeed at rotation with +5/-2 KIAS of 52 KIAS
+\item Initial climb speed remains within +5/-2 KIAS of 52 KIAS
+\item Final climb speed remains within +/-5 KIAS of 79 KIAS
+\item Steady climb maintained until above 1000ft AGL
+\end{itemize}
+
+\medskip
+
+A level acceleration maneuver is when the aircraft attempts to stay at a fixed altitude and then fly from the minimum speed to the maximum speed and back down slowly. By doing this with the correct instrumentation a power required curve can be developed which provides, at a particular altitude, what power is required at each particular airspeed. The procedure for the level acceleration maneuver is to climb to 3000 ft MSL and set flaps to 0 degrees. At that point, throttle is reduced steadily until the aircraft maintains altitude at its stall speed. The throttle is then increased to full allowing the aircraft to stabilize at its maximum speed. The power is then reduced in 10\% increments. For each throttle increment, the airspeed is required to be stabilized whereby data is recorded until the aircraft once again reaches its stall speed. Assesment criteria includes: 
+
+\medskip
+
+\begin{itemize}
+\item Airspeed stabilizes at each test point
+\item Altitude remains within 100 feet throughout the maneuver
+\item Bank angle remains within 5 degrees of level
+\end{itemize}
+
+\medskip
+
+An aircraft's climb performance varies tremendously depending on the airspeed chosen. For each groups flight a steady climb maneuver was performed in order to obtain multiple assessments of climb rate at different airspeeds. A steady climb maneuver is performed by climbing the aircraft to 2500 ft MSL and setting the flaps to 0 degrees. At that point, the aircraft is trimmed to the desired airspeed and throttle is set to full. The aircraft is then positioned to climb through 4000 ft MSL or for 3 minutes. This maneuver enables the building of the climb power curve to determine the maximum angle and most efficient climb rate. Assessment criteria for the steady climb is:
+
+\medskip
+\begin{itemize}
+\item Airspeed remains within 5 knots of desired airspeed
+\item Climb speed remains within +/- 100 ft/min
+\item Bank angle remains clear of clouds
+\item Aircraft does not encounter moderate or higher turbulence
+\end{itemize}
+
+\medskip
+
+Steady descents, in the case of powered aircraft, are of concern primarily in emergency situations. In the event of engine failure it is necessary to understand how to manage airspeed in order to achieve the greatest range the aircraft can provide. Again, this maneuver was performed with varying angles for each group. The steady descent maneuver is performed by climbing to 4000 ft MSL and setting the flaps to 0 degrees. The aircraft is then trimmed to the desired airspeed and throttle is set to idle. The aircraft then descends through 2500 ft MSL or for 3 minutes. Assement criteria for the steady descent maneuver is:
+
+\medskip
+
+\begin{itemize}
+\item Airspeed remains within 5 knots of desired airspeed
+\item Descent speed remains within +/- 100 ft/min
+\item Bank angle remains within 5 degrees of level 
+\item Aircraft remains clear of clouds
+\item Aircraft does not encounter moderate or higher turbulence
+\end{itemize}
+
+\medskip
+
+Short-field landing is a maneuver where the aircraft descend at the normal rate and but stops at a faster than normal speed. The short-field landing maneuver is performed by establishing a 3 degree glide path on final approach, trimming the airspeed to 63 KIAS and setting flaps to 40 degrees. Once the aircraft lands on the runway numbers, full brakes are applied after the nose wheel touches the ground until the aircraft comes to a complete stop. Assesment criteria for the short-field landing is:
+
+\medskip
+
+\begin{itemize}
+\item Aircraft established on 3 degree glide path on final approach
+\item Steady descent rate on final approach
+\item Airspeed remains within +/- 5 KIAS of 63 KIAS  
+\item Aircraft touches down within 100 feet of runway numbers
+\item Aircraft comes to complete stop for 5 seconds on runway
+\end{itemize}
+
+\medskip
+
+
+\subsubsection{Modifications to Aircraft}
+
+Modifications to the aircraft N6394C include instrumenting a Pixhawk 2.1, Here2 GPS, and a telemetry radio inside the cabin. Additionally, a PixRacer, mRO GPS, pitot tube, and pressure sensor were mounted on the underside of the wing. Redundant sensors were used in order to ensure quality data for the performance assesment.
+
+\subsubsection{Weather}
+
+Since the test involves the use of an actual aircraft carrying personnel, it was important to keep track of weather more thoroughly than in prior tests. Weather and atmospheric conditions were logged for each flight card.
+
+
+\subsubsection{Time}
+
+Two separate times were recorded for the flight test: 'Test Time' and 'Flight Time'. The 'Test Time' encompasses the entirety of the test to include setup, pre-flight and post-flight procedures, and flight. The 'Flight Time' includes only the time spent in the air.
+
+\subsubsection{Risk Assessment}
+
+For this particular test, the risks involved were much more concerning than previous tests. Since the flight test includes the use of an actual physical aircraft and for many students being inexperienced in that field, the following risks were considered:
+
+\medskip
+\begin{itemize}
+\item Risk of passenger discomfort or nausea during maneuvers
+\item Risk of turbulence or high winds affecting flight performance
+\item Risk of low visibility or poor weather affecting flight schedule
+\end{itemize}
+
+At any point throughout the test, if a passenger felt unresolvable discomfort for any reason, the passenger could simply say they were ready to land and the pilot would have landed. 
+
+\subsection{Anomalies}
+
+Two known anomalies occurred throughout the course of the flight tests. The first anomaly occurred when a bolt for the the required external instrumentation did not fit the rental aircraft. The attachment hardware had been previously tested on the Thorpe, but was incompatible for the rented Piper. Fortunately, someone at the airfield was able to help resolve the situation. The second anomaly that occurred was the  external instrumentation the RFD telemetry system was drawing excessive amounts of power essentially browning out the pixracer. To resolve the issue, the external instrumentation was run without telemetry because a backup power source was unavailable.   
+\subsection{Flight Card}
+
+As discussed in detail throughout the procedure, the flight cards were followed systematically throughout the flight test. An attached copy of the flight cards can be seen in the Appendix. 
 
 \section{Test Results}
 
