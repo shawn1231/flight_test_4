@@ -62,17 +62,19 @@
 
 \section{Introduction}
 
-\begin{itemize}
-	\item Explain test objectives
-	\begin{itemize}
-		\item Level power required vs. airspeed
-		\item Climb rate vs. airspeed
-		\item Descent rate vs. airspeed
-		\item Takeoff distance
-		\item Landing distance
-	\end{itemize}
-	\item Introduce group members
-\end{itemize}
+Assessing the flight performance characteristics of an aircraft is important when considering the aircraft capabilities. This test campaign focused on the assessment of the Piper Warrior II PA-28 (tail number: N6394C) type-certified and the Thorp T-18 (tail number: N249R) experimental aircrafts while performing the level flight, climb, descent, takeoff, and landing maneuvers. Each maneuver has a characteristic airspeed that was recorded during the respective flight maneuvers which will be discussed in more detail. 
+
+\subsection{Test Objectives}
+
+Level power required is determined during the level acceleration maneuver. During this maneuver, the flaps are set to~\SI{0}{\degree}~and throttle is steadily reduced until the aircraft reaches the stall speed. Once this state is achieved, the throttle is increased to full power in order to allow the aircraft to stabilize at a maximum speed. The level power is found by taking aircraft measurements of fuel quantity and flow rate.
+
+The climb rate is found from conducting the steady climb maneuver. During this maneuver, the aircraft trim is set to a desired airspeed with throttle set to full. The climb maneuver continues up to~\SI{4000}{\foot} mean sea level (MSL) altitude or until~\SI{3}{\minute} has elapsed. 
+
+The descent rate is found by performing the steady descent maneuver. Throttle is set to idle power during this maneuver as the descent goes through~\SI{2500}{\foot} MSL or until~\SI{3}{\minute} has elapsed. This maneuver assumes the aircraft attitude is close to level.
+
+The takeoff distance is found during the short-field takeoff maneuver. The known aircraft starting point and the point of takeoff is the desired distance. The point where the aircraft takes off is the moment where the brakes are released and the aircraft achieves acceleration (point where nose wheel contact is lost with the ground). 
+
+Landing distance was determined during the short-field landing maneuver. The distance is the displacement of the point of nose wheel contact with the ground and the complete stop position on the runway. The aircraft touchdown is within~\SI{100}{\foot}~of the runway numbers in order to achieve comparable landing repetitions.
 
 \subsection{Team Ramrod}
 
@@ -120,12 +122,70 @@ Cody's role on \emph{Team Ramrod} is fashion consultant. Always dressed for the 
 
 \section{Background}
 
-\begin{itemize}
-	\item Level flight performance vs. power required
-	\item Excess power and climbing flight
-	\item Gliding flight
-	\item Takeoff and landing performance
-\end{itemize}
+\subsection{Level Flight Performance versus Power Required}
+
+There are four forces on aircraft during flight. These forces are lift, weight, thrust, and drag. Lift acts perpendicular to the velocity. Drag acts parallel and opposite to velocity. Weight acts downward in the inertial reference frame. Finally, the thrust acts longitudinally in the body reference frame. The level flight performance in steady conditions relies on lift which is characterized by the following equations:
+
+\begin{equation} \label{eq1}
+\ L = W - T\sin(\theta_T)
+\end{equation}
+
+\begin{equation} \label{eq2}
+\ D = T\cos(\theta_T)
+\end{equation}
+
+L is indicative of lift force, W is the weight, T is the thrust, and~$\theta_T$~is the angle of thrust. The drag force is produced as a by-product of lift and velocity. Aircrafts sustain flight by generating thrust to oppose drag. In order for the aircraft to achieve level flight performance, the following equations must be true:
+
+\begin{equation} \label{eq3}
+\ D_p = 1/2 \rho v^2 C_{D_p}
+\end{equation}
+
+\begin{equation} \label{eq4}
+\ D_i = \frac{L^2}{1/2 \rho v^2 s \pi AR e}
+\end{equation}
+
+$D_{p}$~is the parasitic drag due to speed whereas~$D_{i}$~is the induced drag due to lift. ~$AR$~is the aspect ratio,~$e$~is the Oswald efficiency factor, and~$C_{D}$~is the drag coefficient.~$D_{p}$~will vary with~$v^{2}$~which is important to remember since increasing velocity will increase by the square of the velocity.~$D_{i}$~will vary with~$\frac{1}{v^2}$~which means induced drag decreases with increasing velocity.
+
+The power required equation is based on force multiplied by the velocity. However, the power equation can be expanded into the following forms. It is important to note that power needs to be multiplied by about eight in order to achieve a velocity twice as fast.~$s$~represents the referenced frontal area of the aircraft (this reference can change depending on the geometry of the aircraft). The following equations show the substitutions required to yield the required power,~\textit{P}, equation.
+
+\begin{equation} \label{eq5}
+\ P = Dv
+\end{equation}
+
+\begin{equation} \label{eq6}
+\ P = 1/2 \rho v^2 C_{D_p} s v
+\end{equation}
+
+\begin{equation} \label{eq7}
+\ P = C_D s (1/2 \rho v^3)
+\end{equation}
+
+\begin{equation} \label{eq8}
+\ D_p = 1/2 \rho v^2 C_{D_p} s
+\end{equation}
+
+\begin{equation} \label{eq9}
+\ P = f (v^3)
+\end{equation}
+
+\subsection{Excess Power and Climbing Flight}
+The climb performance of the aircraft follows the rate of climb equation where $\gamma$ is indicative of the flight path and not the propeller:
+
+\begin{equation} \label{eq10}
+\ R.O.C. = \frac{dH}{dt} = v \sin(\gamma)
+\end{equation}
+
+Climbing flight relies on the force from the time rate of change of height. Thrust horsepower excess, $THP_{excess}$, is another variable that is dependent on the height time rate of change and aircraft weight, $W$. 
+
+\begin{equation} \label{eq11}
+\ THP_{excess} = W \frac{dH}{dt}
+\end{equation}
+
+There is a power required curve for flight at specific velocities and a power available curve. The power required by the system is typically under the available power curve, and the excess thrust is the difference between the two curves. However, there is a point (crossover point) where more power is required to climb at a higher velocity than what is currently available for an aircraft. Thus, knowing the best angle of climb is important. The best angle of climb occurs right before the peak of the rate of climb on the R.O.C. plot versus velocity. There is also a best angle where the aircraft is flown steeply as possible to avoid low altitude obstacles. Once the obstacles are cleared, the best rate of climb is used. 
+
+\subsection{Gliding Flight}
+
+\subsection{Takeoff and Landing Performance}
 
 \section{Test Procedure}
 
@@ -148,6 +208,60 @@ Cody's role on \emph{Team Ramrod} is fashion consultant. Always dressed for the 
 	\item Show plots of climbs and descents
 	\item Show plots of landing performance
 \end{itemize}
+
+The takeoff performance was found from the data using various indicator variables to determine two critical points the first being the instant the take-off roll began and the second being the moment the aircraft completed rotation and departed the runway. Various variables can be used in this endeavor and carefully studying video from on-board cameras would have been another method if the video had been provided. For most of the flight tests, three independent estimates of the moment the take-off roll began were available from the following measurements: velocity, pitch rate and accelerometer.
+
+For the velocity measurement, a point of near zero velocity was easily identified which was immediately followed by a period of steadily increasing velocity. The difficulty in determining the start of take-off roll from the velocity measurement is two fold. Firstly, since this is a measurement via global positioning system (GPS) it may lag the true takeoff roll instant and this time lag can be variable depending on the current estimate of error in the GPS signal. Analysis of the GPS signal lag and error is outside the scope of this report. The second difficulty arises because the velocity is never truly measured as zero and since the aircraft did not dwell on the runway, it can be difficult to determine what the noise level is corresponding to ``approximately'' zero velocity.
+
+The pitch rate is determined from a gyroscope sensor. The main difficulty with the pitch rate data is that it is noisy. In fact, what would be expected to an obvious change on take-off rotation in the pitch rate is not visible above the noise floor of the data. It was necessary to use another estimate of the beginning of the take-off roll instant when analyzing the pitch rate data because of the noise level. Once an approximate location was identified, the nearest maximum or minimum spike in the pitch rate (usually corresponding to spikes in the other angular rates as well) was identified as the instant of the start of the take-off roll. This spike is most likely due to the pitching of the plane due to releasing the brakes or possibly the a rolling or yawing impulse due to the p-factor effect of the propeller.
+
+The accelerometer measurement was used in a similar manner to the pitch rate measurement. Since this data can be very noisy, an approximate location was identified and then a local extremum was identified. This instant of this extreme point was then identified as the instant at which takeoff roll began.
+
+Due to the uncertain nature of identifying take-off roll beginning and end points, different sensors were used to identify different points of the flight test. Specifically the velocity and accelerometer measurements were only appropriate for identifying the beginning of the take-off roll. While the pitch rate measurement was used to identify both the start and end of take-off roll. Likewise, measurement of pitch angle and altitude were only useful in determining the instant of rotation (the end of takeoff roll) and are explained in more detail below.
+
+The pitch angle was only useful in determining the end of the rotation, signifying the beginning of flight and the end of the take-off roll. Frustratingly the pitch angle could not be used to identifying the beginning of the take-off roll. This is likely due to two issues. The first issue is that the pitch angle is not perfectly zero while the plane in on the ground. Additionally, the pitch angle changes based on use of the brakes and the throttle position as well as with the movement of the occupants. The second problem with the pitch angle is that the small nose up attitude required for take-off rotation means that the signal-to-noise ratio was low. Since this is not a flight test conducted with a high performance aircraft, the expected earth-shattering nose up pitch toward the sky does not occur and the relatively mild take-off rotation is actually fairly difficult to identify (much less identifying the starting point of the roll).
+
+The pitch rate measurement was used in a similar manner as before. The approximate location of the rotation point was idenfitfied from other data and then a local extremum was identified in the pitch rate measurements. The instant of this extremum was identified as the instant of the end of the take-off roll.
+
+The altitude can be used to idenfity the instant the aircraft left the ground (because the altitude began to increase). Fortunately, the altitude increase due to takeoff is large enough to provide a substantial signal-to-noise ratio making the instant easy to identify. Since altitude is provided barometrically, this data will not lag the actual data the way GPS altitude would. Altitude cannot be used to determine the start of the take-off roll because the altitude is approximately constant while the aircraft is on the ground.
+
+The average take-off roll distance was computed by comparing data for all 4 repetitions of the experiment captures as part of Flight Test 04, Card 1, Instance 1. The individual estimates are presented in~\Cref{takeofftable} below.
+
+\begin{table}[htp!]
+\centering
+\caption{Take-off Roll Estimates.}
+\label{takeofftable}
+\begin{tabular}{ c | c | c | c }
+	\multicolumn{4}{c}{\textbf{Repetition Number}}										\\
+	\textbf{1} & \textbf{2} & \textbf{3} & \textbf{4}									\\
+	\hline
+	\SI{1785}{\foot} & \SI{2169}{\foot} & \SI{2355}{\foot} & \SI{1868}{\foot}			\\
+	\hline
+	\hline
+	\multicolumn{3}{c}{\textbf{Overall Average}} & \textbf{\SI[detect-weight=true]{2044}{\foot}}	\\
+	\hline
+\end{tabular}
+\end{table}
+
+An example of the plots used to identify the individual estimates for the beginning and end of the take-off roll is provided in~\Cref{timeid}. A plot showing all of the beginning and end times on the distance measurement is shown in~\Cref{distanceid}.
+
+\begin{figure}[htp!]
+\centering
+	\includegraphics[height=5in]{LandingRollTimeID.png}
+	\caption{Example of Identification of Take-off Roll Start and End Times.}
+	\label{timeid}
+\end{figure}
+
+\begin{figure}[htp!]
+\centering
+	\includegraphics[height=2in]{LandingRollDistID.png}
+	\caption{Take-off Roll Distance Identification using Previously Identified Time Instants.}
+	\label{distanceid}
+\end{figure}
+
+The pilot operating handbook for the aircraft used during this flight test puts the take-off roll distance at around~\SI{2000}{\foot}. No information on the aircraft fuel load was given; although, another flight test was completed without refueling so the aircraft was not close to empty at the beginning of this test. Additionally, the aircraft was occupied by three passengers with an average estimated weight of~\SI{180}{\poundforce}. Assuming a basic empty weight of~\SI{1400}{\poundforce} along with about~\SI{100}{\poundforce} of fuel along with~\SI{100}{\poundforce} of additional equipment (I do not have the operating handbook for this particular aircraft but there was definitely additional equipment including a fire extinguisher, toolbox and upgraded avionics) gives an estimate for takeoff weight of~\SI{2140}{\poundforce}.
+
+The identified take-off roll of~\SI{2044}{\foot} is very close to the expected take-off roll from the handbook of~\SI{2100}{\foot} (assuming altitude of~\SI{1000}{\foot} MSL and temperature of~\SI{15}{\celsius} according to the METAR for KMKC at the time of the flight test). This indicates that the takeoff test was conducted with adequately controlled conditioned since the test was able to recreate expected conditions. Additionally, it means that the pilot operating handbook is trustworthy (good news pilots!).
 
 \section{Discussion}
 
@@ -193,5 +307,7 @@ Cody's role on \emph{Team Ramrod} is fashion consultant. Always dressed for the 
 Innocuous changes in another section.
 
 \section{Appendix}
+
+Dummy github changes.
 
 \end{document}
