@@ -62,17 +62,19 @@
 
 \section{Introduction}
 
-\begin{itemize}
-	\item Explain test objectives
-	\begin{itemize}
-		\item Level power required vs. airspeed
-		\item Climb rate vs. airspeed
-		\item Descent rate vs. airspeed
-		\item Takeoff distance
-		\item Landing distance
-	\end{itemize}
-	\item Introduce group members
-\end{itemize}
+Assessing the flight performance characteristics of an aircraft is important when considering the aircraft capabilities. This test campaign focused on the assessment of the Piper Warrior II PA-28 and the Thorp T-18 – N249R series aircrafts while performing the level flight, climb, descent, takeoff, and landing maneuvers. Each maneuver has a characteristic airspeed that was recorded during the respective flight card maneuvers which will be discussed in more detail. 
+
+\subsection{Test Objectives}
+
+Level power required is determined during the level acceleration maneuver. During this maneuver, the flaps are set to~\SI{0}{\degree}~and throttle is steadily reduced until the flight speed achieves the stall speed. Once this state is achieved, the throttle is increased to full in order to allow the aircraft to stabilize at a maximum speed. The level power is found by taking aircraft measurements of fuel quantity and flow rate.
+
+The climb rate is found from conducting the steady climb maneuver. During this maneuver, the aircraft trim is set to a desired airspeed with throttle set to full. The climb goes through~\SI{4000}{\foot} MSL or until~\SI{3}{\minute}. 
+
+The descent rate is found by performing the steady descent maneuver. Throttle is set to idle during this maneuver as the descent goes through~\SI{2500}{\foot} MSL or for~\SI{3}{\minute}. This maneuver assumes the aircraft is close to level.
+
+The takeoff distance is found during the short-field takeoff maneuver. The known aircraft starting point and the point of takeoff is the desired distance. The point where the aircraft takes off is the moment where the brakes are released and the aircraft achieves acceleration (point where nose wheel contact is lost with the ground). 
+
+Landing distance was determined during the short-field landing maneuver. The distance is the displacement of the point of nose wheel contact with the ground and the complete stop position on the runway. The aircraft touchdown is within~\SI{100}{\foot}~of the runway numbers in order to achieve comparable landing repetitions.
 
 \subsection{Team Ramrod}
 
@@ -120,12 +122,70 @@ Cody's role on \emph{Team Ramrod} is fashion consultant. Always dressed for the 
 
 \section{Background}
 
-\begin{itemize}
-	\item Level flight performance vs. power required
-	\item Excess power and climbing flight
-	\item Gliding flight
-	\item Takeoff and landing performance
-\end{itemize}
+\subsection{Level Flight Performance versus Power Required}
+
+There are four forces on aircraft during flight. These forces are lift, weight, thrust, and drag. Lift acts perpendicular to the velocity. Drag acts parallel and opposite to velocity. Weight acts downward in the inertial reference frame. Finally, the thrust acts longitudinally in the body reference frame. The level flight performance in steady conditions relies on lift which is characterized by the following equations:
+
+\begin{equation} \label{eq1}
+\ L = W - T\sin(\theta_T)
+\end{equation}
+
+\begin{equation} \label{eq2}
+\ D = T\cos(\theta_T)
+\end{equation}
+
+L is indicative of lift force, W is the weight, T is the thrust, and~$\theta_T$~is the angle of thrust. The drag force is produced as a by-product of lift and velocity. Aircrafts sustain flight by generating thrust to oppose drag. In order for the aircraft to achieve level flight performance, the following equations must be true:
+
+\begin{equation} \label{eq3}
+\ D_p = 1/2 \rho v^2 C_{D_p}
+\end{equation}
+
+\begin{equation} \label{eq4}
+\ D_i = \frac{L^2}{1/2 \rho v^2 s \pi AR e}
+\end{equation}
+
+$D_{p}$~is the parasitic drag due to speed whereas~$D_{i}$~is the induced drag due to lift. ~$AR$~is the aspect ratio,~$e$~is the Oswald efficiency factor, and~$C_{D}$~is the drag coefficient.~$D_{p}$~will vary with~$v^{2}$~which is important to remember since increasing velocity will increase by the square of the velocity.~$D_{i}$~will vary with~$\frac{1}{v^2}$~which means induced drag decreases with increasing velocity.
+
+The power required equation is based on force multiplied by the velocity. However, the power equation can be expanded into the following forms. It is important to note that power needs to be multiplied by about eight in order to achieve a velocity twice as fast.~$s$~represents the referenced frontal area of the aircraft (this reference can change depending on the geometry of the aircraft). The following equations show the substitutions required to yield the required power,~\textit{P}, equation.
+
+\begin{equation} \label{eq5}
+\ P = Dv
+\end{equation}
+
+\begin{equation} \label{eq6}
+\ P = 1/2 \rho v^2 C_{D_p} s v
+\end{equation}
+
+\begin{equation} \label{eq7}
+\ P = C_D s (1/2 \rho v^3)
+\end{equation}
+
+\begin{equation} \label{eq8}
+\ D_p = 1/2 \rho v^2 C_{D_p} s
+\end{equation}
+
+\begin{equation} \label{eq9}
+\ P = f (v^3)
+\end{equation}
+
+\subsection{Excess Power and Climbing Flight}
+The climb performance of the aircraft follows the rate of climb equation where $\gamma$ is indicative of the flight path and not the propeller:
+
+\begin{equation} \label{eq10}
+\ R.O.C. = \frac{dH}{dt} = v \sin(\gamma)
+\end{equation}
+
+Climbing flight relies on the force from the time rate of change of height. Thrust horsepower excess, $THP_{excess}$, is another variable that is dependent on the height time rate of change and aircraft weight, $W$. 
+
+\begin{equation} \label{eq11}
+\ THP_{excess} = W \frac{dH}{dt}
+\end{equation}
+
+There is a power required curve for flight at specific velocities and a power available curve. The power required by the system is typically under the available power curve, and the excess thrust is the difference between the two curves. However, there is a point (crossover point) where more power is required to climb at a higher velocity than what is currently available for an aircraft. Thus, knowing the best angle of climb is important. The best angle of climb occurs right before the peak of the rate of climb on the R.O.C. plot versus velocity. There is also a best angle where the aircraft is flown steeply as possible to avoid low altitude obstacles. Once the obstacles are cleared, the best rate of climb is used. 
+
+\subsection{Gliding Flight}
+
+\subsection{Takeoff and Landing Performance}
 
 \section{Test Procedure}
 
