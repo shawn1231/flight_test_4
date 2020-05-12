@@ -30,7 +30,7 @@
 \DeclareSIUnit\inch{in}
 \DeclareSIUnit\foot{ft}
 \DeclareSIUnit\year{yr}
-\DeclareSIUnit\knot{kts}
+\DeclareSIUnit\kts{kts}
 \DeclareSIUnit\poundforce{lbf}
 \DeclareSIUnit\pixel{px}
 
@@ -457,20 +457,20 @@ The average takeoff roll distance was computed by comparing data for all 4 repet
 \end{tabular}
 \end{table}
 
-An example of the plots used to identify the individual estimates for the beginning and end of the takeoff roll is provided in~\Cref{timeid}. A plot showing all of the beginning and end times on the distance measurement is shown in~\Cref{distanceid}.
+An example of the plots used to identify the individual estimates for the beginning and end of the takeoff roll is provided in~\Cref{takeofftimeid}. A plot showing all of the beginning and end times on the distance measurement is shown in~\Cref{takeoffdistanceid}.
 
 \begin{figure}[htp!]
 \centering
 	\includegraphics[height=4in]{TakeoffRollTimeID.png}
 	\caption{Example of Identification of takeoff Roll Start and End Times.}
-	\label{timeid}
+	\label{takeofftimeid}
 \end{figure}
 
 \begin{figure}[htp!]
 \centering
 	\includegraphics[height=1.5in]{TakeoffRollDistID.png}
 	\caption{takeoff Roll Distance Identification using Previously Identified Time Instants.}
-	\label{distanceid}
+	\label{taekoffdistanceid}
 \end{figure}
 
 The pilot operating handbook (POH) for the aircraft used during this flight test puts the takeoff roll distance at around~\SI{2000}{\foot}. No information on the aircraft fuel load was given; although, another flight test was completed without refueling so the aircraft was not close to empty at the beginning of this test. Additionally, the aircraft was occupied by three passengers with an average estimated weight of~\SI{180}{\poundforce}. Assuming a basic empty weight of~\SI{1400}{\poundforce} along with about~\SI{100}{\poundforce} of fuel along with~\SI{100}{\poundforce} of additional equipment (I do not have the operating handbook for this particular aircraft but there was definitely additional equipment including a fire extinguisher, toolbox and upgraded avionics) gives an estimate for takeoff weight of~\SI{2140}{\poundforce}.
@@ -501,14 +501,14 @@ For landing performance, a similar procedure to that used to find takeoff perfor
 \centering
 	\includegraphics[height=4in]{LandingRollTimeID.png}
 	\caption{Example of Identification of takeoff Roll Start and End Times.}
-	\label{timeid}
+	\label{landingtimeid}
 \end{figure}
 
 \begin{figure}[htp!]
 \centering
 	\includegraphics[height=2in]{LandingRollDistID.png}
 	\caption{takeoff Roll Distance Identification using Previously Identified Time Instants.}
-	\label{distanceid}
+	\label{landingdistanceid}
 \end{figure}
 
 Assuming the same conditions as before, the POH specified landing roll is around~\SI{700}{\foot}.  The identified landing roll was around~\SI{1200}{\foot} which is nearly twice as long of a roll as predicted by the POH. This error is explained by a number of factors.
@@ -523,16 +523,39 @@ Additional problems are likely to be found with the way the roll length is estim
 
 The take-away here is that you should not expect to rent a Piper Warrior and go enter a short takeoff and landing (STOL) competition without first verifying that the short field takeoff and landing roll estimates are correct. This is not the correct airplane for bush flying anyway, but if your home airport is a~\SI{1000}{\foot} grass strip, then maybe you should look elsewhere. It is also possible that this aircraft has updated load information or some other mitigating factors explained in the POH which belongs to this aircraft. POH are customized according to modifications to the aircraft and updated throughout the life of the plane. It is possible that some factor (including those not mentioned above) has been documented in the POH and would explain the relatively poor landing roll performance.
 
+\FloatBarrier
+
+\subsection{Power Required for Level Flight}
+
+The power required for level flight was identified by performing the maneuver previously described. This maneuver was identified on the internal data recorded using the measured GPS speed and barometric altitude. The start maneuver was identified by seeking the level altitude part of the flight. Once the start point was identified, the speed measurement was used to determine when the aircraft was at minimum power and then a maximum converged speed was identified after the speed increase due to the power increase during the maneuver.
+
+Exhaustive time synchronization of the internal and external flight data recorders was outside the scope of this report. However, the external flight data recorded did contain airspeed information for this test. Since indicated airspeed (as measured by an air data probe) is the speed of interest for this flight test, the data was referenced. Rudimentary time synchronization was conducted simply by looking for the same altitude patterns in both internal and external files. Thus the time values doe not match perfectly; however, the data is still useful.
+
+The comparison of the GPS recorded ground speed and the indicated airspeed in~\Cref{gpsspeedcomparison} suggest that this maneuver was conducted with a~\SIrange{5}{8}{\meter\per\second}. The minimum speed achieved during this flight test was~\SI{25.73}{\meter\per\second} (\SI{50.01}{\kts}) and the maximum speed achieved was~\SI{56.66}{\meter\per\second} (\SI{110.1}{knot}).
+
+\begin{figure}[htp!]
+\centering
+	\includegraphics[height=2in]{GPSSpeedComparison.png}
+	\caption{GPS Ground Speed vs. Indicated Airspeed.}
+	\label{gpsspeedcomparison}
+\end{figure}
+
+The GPS speed is shown overlaid with the barometric altitude in~\Cref{levelflightmaneuver}. The field height at KMKC airport is approximately~\SI{750}{\foot} and the target altitude for this test was~\SI{3000}{\foot} AGL. This corresponds to an MSL altitude of approximately~\SI{1200}{\meter} so this the conditions for this test were not met precisely. Slight variation in target altitude should not have sufficiently affected the engine performance in order to influence these results. Provided the altitude was approximately constant throughout the test the results should be considered valid.
+
+\begin{figure}[htp!]
+\centering
+	\includegraphics[height=2in]{LevelFlightPower.png}
+	\caption{Level Flight Maneuver.}
+	\label{levelflightmaneuver}
+\end{figure}
+
+In the clean configuration the Piper Warrior has a stall speed of~\SI{50}{\kts} and a maximum attainable speed of~\SI{126}{\kts}. The results of this flight test compare to the published capabilities very well. The tail wind could have had a slight effect on the results but the stall speed was within~\SI{6}{\kts} of the expected value (an error of around~\SI{10}{\percent}) and the maximum speed was within~\SI{16}{\kts} (an error again of slightly more than~\SI{10}{\percent}). The aircraft in its current configuration is most likely not as clean as the day it was manufactured and the engine has most likely lost some power. Thus the expected maximum speed would be lower than that published in the POH. Additionally, the dirtier aircraft may be subject to stall at a slightly higher speed. This is contrary to the understanding of flaps wherein a dirtier aerodynamic aircraft stalls at a lower speed but consider that flaps are an intentional modification which increase lift at the cost of increased drag. Increased airframe dirtiness due to aircraft skin defects, or dirt or panel misalignment, panel vibration etc. is an unplanned effect where drag is increased most likely with no corresponding increase in drag.
+
+\FloatBarrier
 
 \section{Discussion}
 
 \begin{itemize}
-	\item Takeoff and landing performance
-	\begin{itemize}
-		\item Ground roll
-		\item Over \SI{50}{\foot} obstacle
-		\item Compare distances with published data
-	\end{itemize}
 	\item Power required for level flight
 	\begin{itemize}
 		\item Show power required vs. airspeed plot (individual points and regression, if appropriate)
