@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{subcaption}
-\usepackage{placeins}
+\usepackage[section]{placeins}
 \usepackage{cleveref}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -17,6 +17,7 @@
 \usepackage{multirow}
 \usepackage{float}
 \usepackage[normalem]{ulem}
+\usepackage{pdfpages}
 
 \usepackage{hyperref}
 
@@ -393,7 +394,7 @@ Since the test involves the use of an actual aircraft carrying personnel, it was
 
 \subsubsection{Time}
 
-Two separate times were recorded for the flight test: 'Test Time' and 'Flight Time'. The 'Test Time' encompasses the entirety of the test to include setup, pre-flight and post-flight procedures, and flight. The 'Flight Time' includes only the time spent in the air.
+Two separate times were recorded for the flight test: `Test Time' and `Flight Time'. The `Test Time' encompasses the entirety of the test to include setup, pre-flight and post-flight procedures, and flight. The `Flight Time' includes only the time spent in the air.
 
 \subsubsection{Risk Assessment}
 
@@ -417,10 +418,7 @@ As discussed in detail throughout the procedure, the flight cards were followed 
 
 \section{Test Results}
 
-\begin{itemize}
-	\item Show plots of level flight acceleration
-	\item Show plots of climbs and descents
-\end{itemize}
+In this section the results and discussion have been combined. For the sake of convenience, the takeoff and landing performance have been grouped together and appear first. Next, level flight results and discussion are presented. Finally sections concerning climb and glide performance which have also been grouped together are presented.
 
 \subsection{Takeoff Performance}
 
@@ -566,7 +564,7 @@ For this report, only flights in a single aircraft are going to be considered. S
 
 It would appear from the data that the climb and glide tests were combined. Specifically, the flight cards have test 3 and 4 corresponding to the climbing and gliding characteristics respectively. However, in the data, test 4 corresponds to the data collected on the alternative aircraft (not the Piper Warrior). Both the data for flight card 2 and for flight card 3 contain obvious ascent and descent profiles but it is not immediately obvious which of these was climb versus glide. In fact, the data in the file associated with flight card 3 contains data which seems to be more obviously related to ascent profiles than the data contained in flight card 2. This is curious, as the ordering of the flight card would suggest that climbing was done first.
 
-Given no further information, the assumption is going to be made in this report that the ascent and descent testing was combined. Thus, for any ascent profile we will look at airspeed and rate of climb. The following descent will give us information about the gliding performance. Conveniently for the people preparing the report, this means that for each point we identify on the time series, we get two pieces of information, namely the start of an ascent matches the end of a descent and vise-versa.
+Given no further information, the assumption is going to be made in this report that the ascent and descent testing was combined. Thus, for any ascent profile we will look at airspeed and rate of climb. The following descent will give us information about the gliding performance. Conveniently for the people preparing the report, this means that for each point we identify on the time series, we get two pieces of information, namely the start of an ascent matches the end of a descent and vise-versa. Unfortunately for the people preparing this report, the data available for descent during this particular dataset was no good and the analysis had to be repeated using a different dataset.
 
 By picking points on a plot the information in~\Cref{climbglide} has been obtained.
 
@@ -607,19 +605,20 @@ Refer to~\Cref{climbing} for an example of how all the data for this section was
 	\label{climbing}
 \end{figure}
 
-The descending flight test data is mostly unintelligible. The best indicated sink rate is identified as~\SI{827}{\fpm} occuring at~\SI{94}{\kts}.
+The descending flight test data from the flight data which was being discussed for climb performance is mostly unintelligible. So alternative data was found, namely the data for flight test 2 (from the first day at the airport). For this data, the descent maneuvers all were conducted with a sink rate approximately equal to~\SI{546}{\kts}.  The airspeed for each maneuver was~\SIlist{61;81;102;102}{\kts} respectively. A plot showing the identified times and altitudes and the corresponding airspeed is shown in~\Cref{descentid}.
 
-\section{Discussion}
+\begin{figure}[htp!]
+\centering
+	\includegraphics[height=1.0in]{DescentID.png}
+	\caption{Timeseries Demonstrating how Descent Performance was Determined.}
+	\label{descentid}
+\end{figure}
 
-\begin{itemize}
-	\item Gliding performance
-	\begin{itemize}
-		\item Show descent rate vs. airspeed glide polar (individual points and regression, if appropriate)
-		\item Identify maximum sink rate and corresponding airspeed
-		\item Identify best glide speed and corresponding airspeed
-		\item Compare airspeeds with published data
-	\end{itemize}
-\end{itemize}
+The POH indicates that the expected glide ratio for this aircraft is around~\num{12}. This means that if the aircraft lost power at an altitude of~\SI{1000}{\foot} AGL then the aircraft would be capable of gliding for around~\SI{12000}{\foot} before impacting the ground (hopefully the aircraft would be safely landed sometime during that gliding duration). Considering that all of the tests achieved the same sink rate but for different airspeeds, this test does not give much information about the best descending airspeed.
+
+The glide ratio as a result of these tests can be calculated by comparing the downward and forward velocity. This gives glide ratios for the flight test which vary from~\num{11.3} (which closely matches the aircraft specifications in the POH) to~\num{18.9} (which is well above the maximum glide ratio predicted by the POH).
+
+\FloatBarrier
 
 \section{Conclusions}
 
@@ -630,7 +629,9 @@ The descending flight test data is mostly unintelligible. The best indicated sin
 	\item Recommendations
 \end{itemize}
 
-Innocuous changes in another section.
+\clearpage
+
+\FloatBarrier
 
 \section{Appendix}
 
