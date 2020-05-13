@@ -33,6 +33,7 @@
 \DeclareSIUnit\kts{kts}
 \DeclareSIUnit\poundforce{lbf}
 \DeclareSIUnit\pixel{px}
+\DeclareSIUnit\fpm{fpm}
 
 \begin{document}
 
@@ -527,15 +528,17 @@ The take-away here is that you should not expect to rent a Piper Warrior and go 
 
 \subsection{Power Required for Level Flight}
 
-The power required for level flight was identified by performing the maneuver previously described. This maneuver was identified on the internal data recorded using the measured GPS speed and barometric altitude. The start maneuver was identified by seeking the level altitude part of the flight. Once the start point was identified, the speed measurement was used to determine when the aircraft was at minimum power and then a maximum converged speed was identified after the speed increase due to the power increase during the maneuver.
+The power required for level flight was identified by performing the maneuver previously described. This maneuver was identified on the internal data recorded using the measured GPS speed, indicated airspeed from the air data probe and the barometric altitude. This analysis involved using both internal and external flight data recording equipment. The internal recorded generally was better behaved and had a consistently better data rate; whereas, only the external recorded had a reliable air data probe. Both recorders had GPS information.
+
+The start maneuver was identified by seeking the level altitude part of the flight. Once the start point was identified, the speed measurement was used to determine when the aircraft was at minimum power and then a maximum converged speed was identified after the speed increase due to the power increase during the maneuver.
 
 Exhaustive time synchronization of the internal and external flight data recorders was outside the scope of this report. However, the external flight data recorded did contain airspeed information for this test. Since indicated airspeed (as measured by an air data probe) is the speed of interest for this flight test, the data was referenced. Rudimentary time synchronization was conducted simply by looking for the same altitude patterns in both internal and external files. Thus the time values doe not match perfectly; however, the data is still useful.
 
-The comparison of the GPS recorded ground speed and the indicated airspeed in~\Cref{gpsspeedcomparison} suggest that this maneuver was conducted with a~\SIrange{5}{8}{\meter\per\second}. The minimum speed achieved during this flight test was~\SI{25.73}{\meter\per\second} (\SI{50.01}{\kts}) and the maximum speed achieved was~\SI{56.66}{\meter\per\second} (\SI{110.1}{knot}).
+The comparison of the GPS recorded ground speed and the indicated airspeed in~\Cref{gpsspeedcomparison} suggest that this maneuver was conducted with a~\SIrange{5}{8}{\meter\per\second}. The minimum speed achieved during this flight test was~\SI{25.73}{\meter\per\second} (\SI{50.01}{\kts}) and the maximum speed achieved was~\SI{56.66}{\meter\per\second} (\SI{110.1}{\kts}).
 
 \begin{figure}[htp!]
 \centering
-	\includegraphics[height=2in]{GPSSpeedComparison.png}
+	\includegraphics[height=1.5in]{GPSSpeedComparison.png}
 	\caption{GPS Ground Speed vs. Indicated Airspeed.}
 	\label{gpsspeedcomparison}
 \end{figure}
@@ -544,32 +547,71 @@ The GPS speed is shown overlaid with the barometric altitude in~\Cref{levelfligh
 
 \begin{figure}[htp!]
 \centering
-	\includegraphics[height=2in]{LevelFlightPower.png}
+	\includegraphics[height=1.5in]{LevelFlightPower.png}
 	\caption{Level Flight Maneuver.}
 	\label{levelflightmaneuver}
 \end{figure}
 
 In the clean configuration the Piper Warrior has a stall speed of~\SI{50}{\kts} and a maximum attainable speed of~\SI{126}{\kts}. The results of this flight test compare to the published capabilities very well. The tail wind could have had a slight effect on the results but the stall speed was within~\SI{6}{\kts} of the expected value (an error of around~\SI{10}{\percent}) and the maximum speed was within~\SI{16}{\kts} (an error again of slightly more than~\SI{10}{\percent}). The aircraft in its current configuration is most likely not as clean as the day it was manufactured and the engine has most likely lost some power. Thus the expected maximum speed would be lower than that published in the POH. Additionally, the dirtier aircraft may be subject to stall at a slightly higher speed. This is contrary to the understanding of flaps wherein a dirtier aerodynamic aircraft stalls at a lower speed but consider that flaps are an intentional modification which increase lift at the cost of increased drag. Increased airframe dirtiness due to aircraft skin defects, or dirt or panel misalignment, panel vibration etc. is an unplanned effect where drag is increased most likely with no corresponding increase in drag.
 
+Since horsepower was not recorded, relationships with power cannot be determined. However, the POH can be referenced for estimates of the desired quantities.
+
+The minimum power required is not given in the POH. However, the minimum engine power specified in other charts in the POH is never lower than~\SI{55}{\percent}. The maximum range assuming~\SI{55}{\percent} throttle at a density altitude of around~\SI{1000}{\foot} AGL (may be too close to the ground for some parts of the Kansas City area), the expected range is around~\SI{585}{\nauticalmile}. If power were available from this flight test then the expected minimum throttle could be compared with the published values and adjustments made to the expected range.
+
 \FloatBarrier
+
+\subsection{Climb Performance and Glide Performance}
+
+For this report, only flights in a single aircraft are going to be considered. Since the Thorpe T-18 Experimental is not a type certified aircraft, values from a generic POH for other aircrafts of similar build may not be accurate. It is known that the aircraft with tail number N249R has been modified for additional passenger compartment space including the addition of a back seat. This is sure to change the aircraft characteristics so for this report we will only be studying parameters for which we can find a value in the POH which we trust.
+
+It would appear from the data that the climb and glide tests were combined. Specifically, the flight cards have test 3 and 4 corresponding to the climbing and gliding characteristics respectively. However, in the data, test 4 corresponds to the data collected on the alternative aircraft (not the Piper Warrior). Both the data for flight card 2 and for flight card 3 contain obvious ascent and descent profiles but it is not immediately obvious which of these was climb versus glide. In fact, the data in the file associated with flight card 3 contains data which seems to be more obviously related to ascent profiles than the data contained in flight card 2. This is curious, as the ordering of the flight card would suggest that climbing was done first.
+
+Given no further information, the assumption is going to be made in this report that the ascent and descent testing was combined. Thus, for any ascent profile we will look at airspeed and rate of climb. The following descent will give us information about the gliding performance. Conveniently for the people preparing the report, this means that for each point we identify on the time series, we get two pieces of information, namely the start of an ascent matches the end of a descent and vise-versa.
+
+By picking points on a plot the information in~\Cref{climbglide} has been obtained.
+
+\begin{table}[htp!]
+\centering
+\caption{Climbing and Gliding Performance}
+\label{climbglide}
+\begin{tabular}{ c | c | c | c | c }
+	\multicolumn{5}{c}{\textbf{Ascent Number}}										\\
+	\textbf{1} & \textbf{2} & \textbf{3} & \textbf{4}	& \textbf{5}								\\
+	\hline
+	\SI{437}{\fpm} & \SI{436}{\foot} & \SI{317}{\foot} & \SI{153}{\foot} & \SI{160}{\fpm}		\\
+	\hline
+	\multicolumn{5}{c}{\textbf{Descent Number}}										\\
+	\textbf{1} & \textbf{2} & \textbf{3} & \textbf{4}	& \textbf{5}						\\
+	\hline
+	\SI{624}{\fpm} & \SI{528}{\foot} & \SI{827}{\foot} & \SI{229}{\foot}  & NA		\\
+\end{tabular}
+\end{table}
+
+The airspeed corresponding to each of these trials was~\SIlist{68;85;94;105;110}{\kts} respectively. For the final two airspeed, the aircraft was not climbing sufficiently quickly and thus the test was stopped prior to achieving the desired altitude. There was a~\SI{3}{\minute} maximum time limit specified for each trial during the max ascent test and this maximum time was used on the last two tests according to the data. The last descent appears to have been a descent back to the runaway (for landing) according to the data and is not considered for this section as a result.
+
+The climb polar is presented in~\Cref{climbpolar}. From the regression the best climb rate is~\SI{450}{\fpm} occuring at about~\SI{70}{\kts} airspeed. This is substantially lower than the max climb predicted in the POH. Using values for the POH charts previously discussed the maximum theoretical climb was identified as~\SI{650}{\kts}. This could be due to different loading conditions being used to determine the theoretical max climb versus those which were actually present during the flight test. Additionally, the data analysis for this part of the report is suspect so do not rule out massive errors in terms of calculating the relevant parameters.
+
+\begin{figure}[htp!]
+\centering
+	\includegraphics[height=1.75in]{ClimbPolar.png}
+	\caption{Climb versus Airspeed.}
+	\label{climbpolar}
+\end{figure}
+
+Refer to~\Cref{climbing} for an example of how all the data for this section was found from plots of the data. From examining the plot, it should be obvious that many errors were possible in the examining of this data. The x-values (time) have been removed from the tool tips in order to make this plot legible. Otherwise, there is too much data. For the analysis, x-values from the plot were used (rather than estimates from the grid lines).
+
+\begin{figure}[htp!]
+\centering
+	\includegraphics[height=1.0in]{Climbing.png}
+	\caption{Timeseries Demonstrating how Max Climb versus Airspeed was Determined.}
+	\label{climbing}
+\end{figure}
+
+The descending flight test data is mostly unintelligible. The best indicated sink rate is identified as~\SI{827}{\fpm} occuring at~\SI{94}{\kts}.
 
 \section{Discussion}
 
 \begin{itemize}
-	\item Power required for level flight
-	\begin{itemize}
-		\item Show power required vs. airspeed plot (individual points and regression, if appropriate)
-		\item Identify minimum power required and corresponding airspeed
-		\item Identify maximum range and corresponding airspeed
-		\item Compare airspeed with published data
-	\end{itemize}
-	\item Climb performance
-	\begin{itemize}
-		\item Show climb rate vs. airspeed climb polar (individual points and regression, if appropriate)
-		\item Identify maximum climb rate and corresponding airspeed
-		\item Identify maximum climb angle and corresponding airspeed
-		\item Compare airspeeds with published data
-	\end{itemize}
 	\item Gliding performance
 	\begin{itemize}
 		\item Show descent rate vs. airspeed glide polar (individual points and regression, if appropriate)
